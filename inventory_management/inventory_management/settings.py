@@ -77,15 +77,10 @@ WSGI_APPLICATION = 'inventory_management.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inventory_db',  # Your database name
-        'USER': 'postgres',        # Default PostgreSQL user
-        'PASSWORD': 'ishipkitty',  # Your PostgreSQL password
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation
