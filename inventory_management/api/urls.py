@@ -7,6 +7,6 @@ router = DefaultRouter()
 router.register(r'inventory-items', InventoryItemViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),  # Add this line to include the API URLs
-    path('api-token-auth/', views.obtain_auth_token),  # Add this line to include the API token authentication URL
+    path('api/', include(router.urls)),  # include the API URLs
+    path('api-token-auth/', views.obtain_auth_token),  # include the API token authentication URL
 ]

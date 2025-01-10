@@ -31,11 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'inventory',
-    'api',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'rest_framework',
+    'inventory', # Add the Inventory app
+    'api', # Add the API app
+    'crispy_forms', # Add the Crispy Forms package
+    'crispy_bootstrap5', # Add the Crispy Forms Bootstrap 5 package
+    'rest_framework', # For building APIs
     'rest_framework.authtoken',  # For token-based authentication
     'django.contrib.admin',
     'django.contrib.auth',
@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'inventory_management.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3', # Use SQLite for the database
+        'NAME': BASE_DIR / 'db.sqlite3',   
     }
 }
 
@@ -129,21 +129,24 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # Add the Crispy Forms Bootstrap 5 package
+CRISPY_TEMPLATE_PACK = "bootstrap5" # Add the Crispy Forms Bootstrap 5 package
 
-LOGIN_REDIRECT_URL = '/dashboard'
-LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/dashboard' # Redirect to the dashboard after login
+LOGIN_URL = '/login' # Redirect to the login page
 
-LOW_QUANTITY = 3
+LOW_QUANTITY = 3 # Define the low inventory threshold
 
+# Configure Django REST framework settings
 REST_FRAMEWORK = {
+    # Use token-based authentication for the API
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    # Use IsAuthenticated permission for the API
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # Enable pagination
     'PAGE_SIZE': 10,
 }
